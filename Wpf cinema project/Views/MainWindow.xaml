@@ -1,0 +1,48 @@
+﻿<Window x:Class="Wpf_cinema_project.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_cinema_project"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        WindowState="Maximized" WindowStyle="ThreeDBorderWindow" 
+        Height="600" Width="1500" 
+        HorizontalAlignment="Center" VerticalAlignment="Center" 
+        Icon="\Images\Cinema Icon.png"
+        ResizeMode="NoResize"
+        >
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Canvas Grid.Row="0">
+            <TextBlock Height="130" Background="{StaticResource DarkBlue}" Width="700"></TextBlock>
+            <Image Source="\Images\cinema mine film.png" Width="200" Canvas.Left="564" Canvas.Top="-21" HorizontalAlignment="Left" Height="113" VerticalAlignment="Top" RenderTransformOrigin="0.532,0.572"></Image>
+            <Label Content="MyCinema" Foreground="{StaticResource DeepSkyBlueAndWhite}" FontSize="40" Canvas.Left="500" Canvas.Top="65"></Label>
+
+            <TextBlock Background="{StaticResource DeepSkyBlue}" Width="900" Canvas.Left="700" Canvas.Top="60" Height="70"></TextBlock>
+            <Label Content="+994 234 56 78" FontSize="20" Canvas.Top="75" Canvas.Left="800"></Label>
+            <Label Content="+994 234 56 78" FontSize="20" Canvas.Top="75" Canvas.Left="1000"></Label>
+            <Label Content="+994 234 56 78" FontSize="20" Canvas.Top="75" Canvas.Left="1200"></Label>
+            <Image Source="\Images\Telephone icon.png" Canvas.Top="79" Canvas.Left="750"></Image>
+
+            <Canvas>
+                <RadioButton IsChecked="True" Canvas.Top="180" Canvas.Left="550" Content="Movies" Style="{StaticResource RadioButtonTemplate}"></RadioButton>
+
+                <RadioButton Canvas.Top="180" Canvas.Left="700" Content="Search" Style="{StaticResource  RadioButtonTemplate}"></RadioButton>
+
+                <RadioButton Canvas.Top="180" Canvas.Left="850" Content="Schedule" Style="{StaticResource RadioButtonTemplate}"></RadioButton>
+
+            </Canvas>
+
+        </Canvas>
+
+        <Grid x:Name="myGrid" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="600"/>
+            </Grid.RowDefinitions>
+        </Grid>
+    </Grid>
+</Window>
