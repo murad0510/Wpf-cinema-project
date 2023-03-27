@@ -11,6 +11,7 @@ using System.Windows.Media.Media3D;
 using Wpf_cinema_project.Commands;
 using Wpf_cinema_project.Helpers;
 using Wpf_cinema_project.Models;
+using Wpf_cinema_project.Repostory;
 using Wpf_cinema_project.Services;
 using Wpf_cinema_project.Views.UserControls;
 
@@ -40,6 +41,14 @@ namespace Wpf_cinema_project.ViewModels
         {
             get { return selectedItemLanguage; }
             set { selectedItemLanguage = value; OnPropertyChanged(); }
+        }
+
+        private List<Movie> allMovies;
+
+        public List<Movie> AllMovies
+        {
+            get { return allMovies; }
+            set { allMovies = value; OnPropertyChanged(); }
         }
 
 
@@ -72,6 +81,7 @@ namespace Wpf_cinema_project.ViewModels
 
         public MovieCellViewModel()
         {
+            AllMovies = App.MovieRepo.Movies;
             CinemaLocations = new List<string>
             {
                 "Cinema",
@@ -118,6 +128,8 @@ namespace Wpf_cinema_project.ViewModels
 
                 for (int i = 0; i < FileHelper.ReadMovie().Count; i++)
                 {
+                    var homeUc = new HomeUC();
+                    var movieRepostory = new MovieRepostory();
                     if (FileHelper.ReadMovie()[i].CinemaLocation == SelectedItem)
                     {
                         var ucVM = new MovieCellViewModel
@@ -125,7 +137,6 @@ namespace Wpf_cinema_project.ViewModels
                             Movie = App.Movies[i],
                         };
 
-                        var homeUc = new HomeUC();
                         App.MyWrapPanel = homeUc.myPanel;
 
                         var uc = new MovieCellUC(ucVM);
@@ -142,8 +153,6 @@ namespace Wpf_cinema_project.ViewModels
                             {
                                 Movie = App.Movies[k],
                             };
-
-                            var homeUc = new HomeUC();
 
                             App.MyWrapPanel = homeUc.myPanel;
                             var uc = new MovieCellUC(ucVM);

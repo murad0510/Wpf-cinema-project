@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wpf_cinema_project.Models
 {
-    public class Movie
+    public class Movie : Entity
     {
         public string Name { get; set; }
         public string Description { get; set; }

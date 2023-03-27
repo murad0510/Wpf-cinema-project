@@ -34,7 +34,7 @@ namespace Wpf_cinema_project.ViewModels
                 //"Halloween Ends",
                 //"Morbius",
                 //"Interstellar",
-                //"Mulan",
+                "Mulan",
                 //"Dune",
                 //"Tenet",
                 //"Black Panther",

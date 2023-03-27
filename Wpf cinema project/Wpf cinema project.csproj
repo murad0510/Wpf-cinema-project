@@ -66,6 +66,8 @@
     </ApplicationDefinition>
     <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="Models\CinemaLocation.cs" />
+    <Compile Include="Models\Entity.cs" />
+    <Compile Include="Repostory\MovieRepostory.cs" />
     <Compile Include="ViewModels\MovieCellViewModel.cs" />
     <Compile Include="ViewModels\MovieUCViewModel.cs" />
     <Compile Include="Views\UserControls\HomeUC.xaml.cs">
@@ -173,6 +175,8 @@
   <ItemGroup>
     <Resource Include="Images\Star icon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\Kungfu Mulan Photo.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
