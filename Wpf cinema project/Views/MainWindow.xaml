@@ -15,8 +15,8 @@
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="250"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+            <RowDefinition/>k
+        </Grid.RowDefinitions>hghk
         <Canvas Grid.Row="0">
             <TextBlock Height="130" Background="{StaticResource DarkBlue}" Width="700"></TextBlock>
             <Image Source="\Images\cinema mine film.png" Width="200" Canvas.Left="564" Canvas.Top="-21" HorizontalAlignment="Left" Height="113" VerticalAlignment="Top" RenderTransformOrigin="0.532,0.572"></Image>
