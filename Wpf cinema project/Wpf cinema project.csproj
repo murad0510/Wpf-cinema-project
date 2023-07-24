@@ -67,6 +67,7 @@
     <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="Models\CinemaLocation.cs" />
     <Compile Include="Models\Entity.cs" />
+    <Compile Include="Models\PageNo.cs" />
     <Compile Include="Repostory\MovieRepostory.cs" />
     <Compile Include="ViewModels\MovieCellViewModel.cs" />
     <Compile Include="ViewModels\MovieUCViewModel.cs" />

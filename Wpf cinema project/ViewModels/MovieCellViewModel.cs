@@ -115,9 +115,8 @@ namespace Wpf_cinema_project.ViewModels
                 MessageBox.Show("safdsfsas");
             });
 
-            SelectionChang = new RelayCommand((obj) =>
+            SelectionChang = new RelayCommand((_) =>
             {
-
                 int left = 70;
                 int up = 10;
                 int right = 0;
