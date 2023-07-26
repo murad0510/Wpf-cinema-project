@@ -86,7 +86,6 @@ namespace Wpf_cinema_project.ViewModels
         static List<Movie> list = new List<Movie>();
         public MainViewModel(WrapPanel myPanel)
         {
-
             SelectPageCommand = new RelayCommand((_) =>
             {
                 bool s = false;
