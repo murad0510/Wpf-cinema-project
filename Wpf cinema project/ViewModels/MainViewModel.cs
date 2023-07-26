@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Media3D;
 using Wpf_cinema_project.Commands;
 using Wpf_cinema_project.Helpers;
 using Wpf_cinema_project.Models;
@@ -50,42 +51,73 @@ namespace Wpf_cinema_project.ViewModels
         public RelayCommand SelectPageCommand { get; set; }
         public RelayCommand SearchButtonCommand { get; set; }
 
-        static List<string> list = new List<string>
-        {
-            //"Black Adam",
-            //"The Batman",
-            //"Xoxan",
-            //"Hayaller Ülkesi",
-            //"Troll",
-            //"Halloween Ends",
-            //"Morbius",
-            //"Interstellar",
-            //"Mulan",
-            //"Dune",
-            //"Tenet",
-            //"Black Panther",
-            //"The Shawshank Redemption",
-            //"The Godfather",
-            //"Avatar",
-            //"Logan",
-            //"The Avengers",
-            //"Captain America: The Winter Soldier",
-            //"Wonder Woman",
-            //"Aquaman",
-            //"1917",
-            //"Doctor Strange",
-            //"Deadpool",
-            //"John Wick",
-            //"Sicario",
-            //"Gladiator",
-        };
+        //static List<string> list = new List<string>
+        //{
+        //    //"Black Adam",
+        //    //"The Batman",
+        //    //"Xoxan",
+        //    //"Hayaller Ülkesi",
+        //    //"Troll",
+        //    //"Halloween Ends",
+        //    //"Morbius",
+        //    //"Interstellar",
+        //    //"Mulan",
+        //    //"Dune",
+        //    //"Tenet",
+        //    //"Black Panther",
+        //    //"The Shawshank Redemption",
+        //    //"The Godfather",
+        //    //"Avatar",
+        //    //"Logan",
+        //    //"The Avengers",
+        //    //"Captain America: The Winter Soldier",
+        //    //"Wonder Woman",
+        //    //"Aquaman",
+        //    //"1917",
+        //    //"Doctor Strange",
+        //    //"Deadpool",
+        //    //"John Wick",
+        //    //"Sicario",
+        //    //"Gladiator",
+        //};
+
+
+
+        static List<Movie> list = new List<Movie>();
         public MainViewModel(WrapPanel myPanel)
         {
 
             SelectPageCommand = new RelayCommand((_) =>
             {
+                bool s = false;
+                List<Movie> movies1 = new List<Movie>();
+
                 var no = SelectedPageNo.No;
-                //MyPanel.Children.Clear();
+                MyPanel.Children.Clear();
+                int left = 70;
+                int up = 10;
+                int right = 0;
+                int down = 70;
+                var l = new ObservableCollection<Movie>(list.Skip((no - 1) * 2).Take(2));
+                foreach (var m in l)
+                {
+                    var ucVM = new MovieCellViewModel()
+                    {
+                        Movie = m,
+                    };
+                    var uc = new MovieCellUC(ucVM);
+                    uc.Margin = new System.Windows.Thickness(left, up, right, down);
+                    if (!s)
+                    {
+                        MyPanel.Children.Clear();
+                        s = true;
+                    }
+
+                    MyPanel.Children.Add(uc);
+
+                    movies1.Add(m);
+                }
+                //MyPanel.Children = l;
             });
 
             SearchButtonCommand = new RelayCommand(async (_) =>
@@ -103,6 +135,7 @@ namespace Wpf_cinema_project.ViewModels
                 //foreach (var item in list)
                 //{
                 var movies = await MovieService.GetMovie(SearchMovie);
+                list = movies;
                 AllPages = new ObservableCollection<PageNo>();
                 var pageSize = 2;
                 var page = decimal.Parse(movies.Count().ToString()) / pageSize;
